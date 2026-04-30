@@ -88,18 +88,18 @@ export const createSubmission = async (req, res, next) => {
       path: file.filePath
     }));
 
-    await sendMail({
-      to: process.env.ADMIN_RECEIVER_EMAIL,
-      subject: `New Contact Submission: ${submission.subject}`,
-      html: adminSubmissionEmail(submission),
-      attachments
-    });
+    // await sendMail({
+//   to: process.env.ADMIN_RECEIVER_EMAIL,
+//   subject: `New Contact Submission: ${submission.subject}`,
+//   html: adminSubmissionEmail(submission),
+//   attachments
+// });
 
-    await sendMail({
-      to: submission.email,
-      subject: `We received your message: ${submission.subject}`,
-      html: userConfirmationEmail(submission)
-    });
+// await sendMail({
+//   to: submission.email,
+//   subject: `We received your message: ${submission.subject}`,
+//   html: userConfirmationEmail(submission)
+// });
 
     res.status(201).json({
       success: true,
