@@ -12,6 +12,7 @@ import connectDB from "./config/db.js";
 import submissionRoutes from "./routes/submissionRoutes.js";
 import aiRoutes from "./routes/aiRoutes.js";
 import authRoutes from "./routes/authRoutes.js";
+import fs from "fs";
 
 dotenv.config();
 connectDB();
@@ -23,6 +24,12 @@ const CLIENT_URL = process.env.CLIENT_URL || "http://localhost:5173";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+
+const uploadDir = path.join(__dirname, "uploads");
+
+if (!fs.existsSync(uploadDir)) {
+  fs.mkdirSync(uploadDir, { recursive: true });
+}
 
 const server = http.createServer(app);
 
