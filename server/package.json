@@ -1,0 +1,40 @@
+{
+  "name": "smartsend-ai-server",
+  "version": "1.0.0",
+  "description": "SmartSend AI backend API for advanced contact form, file uploads, email notifications and AI assistant.",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "server": "nodemon server.js",
+    "start": "node server.js"
+  },
+  "keywords": [
+    "contact-form",
+    "nodejs",
+    "express",
+    "mongodb",
+    "ai",
+    "gemini",
+    "nodemailer",
+    "file-upload"
+  ],
+  "author": "Your Name",
+  "license": "ISC",
+  "dependencies": {
+    "@google/genai": "^1.30.0",
+    "bcryptjs": "^3.0.3",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "express-rate-limit": "^8.2.1",
+    "helmet": "^8.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^9.0.0",
+    "multer": "^2.0.2",
+    "nodemailer": "^8.0.7",
+    "socket.io": "^4.8.3"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.11"
+  }
+}

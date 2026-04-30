@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SmartSend AI Documentation</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0f172a;
+      color: #e5e7eb;
+      line-height: 1.7;
+    }
+    .layout {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      min-height: 100vh;
+    }
+    aside {
+      background: #020617;
+      padding: 30px 20px;
+      border-right: 1px solid #1e293b;
+      position: sticky;
+      top: 0;
+      height: 100vh;
+    }
+    aside h2 {
+      margin-top: 0;
+      color: #fff;
+    }
+    aside a {
+      display: block;
+      color: #94a3b8;
+      text-decoration: none;
+      padding: 8px 0;
+    }
+    aside a:hover {
+      color: #60a5fa;
+    }
+    main {
+      padding: 40px;
+      max-width: 1000px;
+    }
+    section {
+      background: #111827;
+      border: 1px solid #1f2937;
+      border-radius: 16px;
+      padding: 25px;
+      margin-bottom: 25px;
+    }
+    h1, h2, h3 {
+      color: #fff;
+    }
+    code, pre {
+      background: #020617;
+      color: #dbeafe;
+      border-radius: 10px;
+    }
+    pre {
+      padding: 18px;
+      overflow-x: auto;
+    }
+    .badge {
+      display: inline-block;
+      background: #2563eb;
+      color: #fff;
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 14px;
+    }
+    .warning {
+      background: #451a03;
+      border: 1px solid #92400e;
+      color: #fde68a;
+      padding: 14px;
+      border-radius: 10px;
+    }
+    ul {
+      padding-left: 22px;
+    }
+    @media (max-width: 800px) {
+      .layout {
+        grid-template-columns: 1fr;
+      }
+      aside {
+        position: relative;
+        height: auto;
+      }
+      main {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="layout">
+    <aside>
+      <h2>SmartSend AI</h2>
+      <p>Advanced Contact Form Script</p>
+      <a href="#intro">Introduction</a>
+      <a href="#features">Features</a>
+      <a href="#requirements">Requirements</a>
+      <a href="#installation">Installation</a>
+      <a href="#backend">Backend Setup</a>
+      <a href="#frontend">Frontend Setup</a>
+      <a href="#env">Environment Variables</a>
+      <a href="#smtp">SMTP Setup</a>
+      <a href="#ai">Gemini AI Setup</a>
+      <a href="#admin">Admin Dashboard</a>
+      <a href="#deployment">Deployment</a>
+      <a href="#support">Support</a>
+    </aside>
+
+    <main>
+      <section id="intro">
+        <span class="badge">Version 1.0.0</span>
+        <h1>SmartSend AI Documentation</h1>
+        <p>
+          SmartSend AI is a modern contact form application with AI message improvement,
+          file uploads, email notifications, admin dashboard, analytics charts,
+          real-time notifications and submission management.
+        </p>
+      </section>
+
+      <section id="features">
+        <h2>Features</h2>
+        <ul>
+          <li>AI-powered message improvement using Google Gemini API</li>
+          <li>Advanced contact form with file uploader</li>
+          <li>Email notifications using SMTP / Nodemailer</li>
+          <li>User confirmation email</li>
+          <li>Admin login with JWT authentication</li>
+          <li>Submission management dashboard</li>
+          <li>View, delete, read/unread and archive submissions</li>
+          <li>CSV export</li>
+          <li>Analytics charts</li>
+          <li>Real-time notifications using Socket.io</li>
+          <li>Online users indicator</li>
+          <li>Responsive premium UI</li>
+        </ul>
+      </section>
+
+      <section id="requirements">
+        <h2>Technical Requirements</h2>
+        <ul>
+          <li>Node.js 18 or higher</li>
+          <li>MongoDB Atlas or local MongoDB</li>
+          <li>NPM</li>
+          <li>Modern browser</li>
+          <li>SMTP email account</li>
+          <li>Google Gemini API key for AI feature</li>
+        </ul>
+        <div class="warning">
+          External services like MongoDB Atlas, Google Gemini API and SMTP email providers may require separate accounts and may have usage limits or costs.
+        </div>
+      </section>
+
+      <section id="installation">
+        <h2>Installation</h2>
+        <p>Extract the downloaded package and open the project folder.</p>
+        <pre><code>smartsend-ai/
+├── client/
+├── server/
+├── documentation/
+└── README.md</code></pre>
+      </section>
+
+      <section id="backend">
+        <h2>Backend Setup</h2>
+        <pre><code>cd server
+npm install</code></pre>
+        <p>Create a <code>.env</code> file from <code>.env.example</code>.</p>
+        <pre><code>copy .env.example .env</code></pre>
+        <p>Start backend:</p>
+        <pre><code>npm run server</code></pre>
+        <p>Backend default URL:</p>
+        <pre><code>http://localhost:5000</code></pre>
+      </section>
+
+      <section id="frontend">
+        <h2>Frontend Setup</h2>
+        <pre><code>cd client
+npm install
+npm run dev</code></pre>
+        <p>Frontend default URL:</p>
+        <pre><code>http://localhost:5173</code></pre>
+      </section>
+
+      <section id="env">
+        <h2>Environment Variables</h2>
+        <pre><code>PORT=5000
+NODE_ENV=development
+
+MONGODB_URI=your_mongodb_connection_string
+
+JWT_SECRET=your_secret_key
+JWT_EXPIRES_IN=7d
+
+ADMIN_EMAIL=admin@example.com
+ADMIN_PASSWORD=your_admin_password
+
+CLIENT_URL=http://localhost:5173
+
+SMTP_HOST=smtp.gmail.com
+SMTP_PORT=587
+SMTP_SECURE=false
+SMTP_USER=your_email@gmail.com
+SMTP_PASS=your_app_password
+MAIL_FROM_NAME=SmartSend AI
+MAIL_FROM_EMAIL=your_email@gmail.com
+ADMIN_RECEIVER_EMAIL=your_email@gmail.com
+
+GEMINI_API_KEY=your_gemini_api_key
+
+MAX_FILE_SIZE_MB=5
+UPLOAD_DIR=uploads</code></pre>
+        <div class="warning">
+          Never share your real .env file publicly. Only include .env.example in your final package.
+        </div>
+      </section>
+
+      <section id="smtp">
+        <h2>SMTP Setup</h2>
+        <p>For Gmail SMTP, enable 2-Step Verification and create an App Password.</p>
+        <pre><code>SMTP_HOST=smtp.gmail.com
+SMTP_PORT=587
+SMTP_SECURE=false
+SMTP_USER=your_email@gmail.com
+SMTP_PASS=your_16_character_app_password</code></pre>
+      </section>
+
+      <section id="ai">
+        <h2>Google Gemini AI Setup</h2>
+        <p>Create a Gemini API key from Google AI Studio and add it to backend .env:</p>
+        <pre><code>GEMINI_API_KEY=your_gemini_api_key</code></pre>
+      </section>
+
+      <section id="admin">
+        <h2>Admin Dashboard</h2>
+        <p>Admin login URL:</p>
+        <pre><code>http://localhost:5173/admin</code></pre>
+        <p>Default credentials are configured in the backend .env file:</p>
+        <pre><code>ADMIN_EMAIL=admin@example.com
+ADMIN_PASSWORD=your_admin_password</code></pre>
+      </section>
+
+      <section id="deployment">
+        <h2>Deployment</h2>
+        <h3>Backend Deployment</h3>
+        <p>Deploy the <code>server</code> folder to services like Render, Railway or VPS.</p>
+        <p>Set all backend environment variables in your hosting dashboard.</p>
+
+        <h3>Frontend Deployment</h3>
+        <p>Update client environment variables:</p>
+        <pre><code>VITE_API_URL=https://your-backend-url.com/api
+VITE_SOCKET_URL=https://your-backend-url.com</code></pre>
+        <p>Build frontend:</p>
+        <pre><code>cd client
+npm run build</code></pre>
+        <p>Upload the <code>dist</code> folder to Netlify, Vercel or your hosting provider.</p>
+      </section>
+
+      <section id="support">
+        <h2>Support Notes</h2>
+        <ul>
+          <li>Make sure MongoDB connection string is correct.</li>
+          <li>Use Gmail App Password, not normal Gmail password.</li>
+          <li>Check backend logs if email or AI feature fails.</li>
+          <li>For production, update CLIENT_URL and frontend API URLs.</li>
+        </ul>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
