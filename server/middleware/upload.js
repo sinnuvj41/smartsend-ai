@@ -21,8 +21,8 @@ const allowedMimeTypes = [
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, uploadDir);
-  },
+  cb(null, process.env.UPLOAD_DIR || "uploads");
+},
   filename: (req, file, cb) => {
     const uniqueName = `${Date.now()}-${Math.round(Math.random() * 1e9)}`;
     const ext = path.extname(file.originalname);
