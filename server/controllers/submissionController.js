@@ -29,14 +29,26 @@ const getLocationFromIp = async (ip) => {
   }
 
   try {
-    const response = await fetch(`https://ipapi.co/${ip}/json/`);
+    const response = await fetch(
+      `http://ip-api.com/json/${ip}?fields=status,country,city`
+    );
+
     const data = await response.json();
 
+    if (data.status !== "success") {
+      return {
+        country: "Unknown",
+        city: "Unknown"
+      };
+    }
+
     return {
-      country: data.country_name || "Unknown",
+      country: data.country || "Unknown",
       city: data.city || "Unknown"
     };
-  } catch {
+  } catch (error) {
+    console.error("IP lookup failed:", error.message);
+
     return {
       country: "Unknown",
       city: "Unknown"
